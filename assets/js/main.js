@@ -1,4 +1,25 @@
-/* Academic Personal Site — main.js */
+/* Yusheng Xia — Academic Site · main.js */
+
+/* ---------- theme (dark / light) ---------- */
+(function () {
+  const saved = localStorage.getItem('site-theme');
+  document.documentElement.dataset.theme = (saved === 'light' || saved === 'dark') ? saved : 'dark';
+  updateIcon();
+
+  document.addEventListener('click', function (e) {
+    if (e.target && e.target.id === 'theme-toggle') {
+      const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+      document.documentElement.dataset.theme = next;
+      localStorage.setItem('site-theme', next);
+      updateIcon();
+    }
+  });
+
+  function updateIcon() {
+    const btn = document.getElementById('theme-toggle');
+    if (btn) btn.textContent = document.documentElement.dataset.theme === 'dark' ? '☀' : '☾';
+  }
+})();
 
 /* ---------- language toggle ---------- */
 (function () {
@@ -34,7 +55,7 @@
   const io = new IntersectionObserver(entries => {
     entries.forEach((entry, i) => {
       if (entry.isIntersecting) {
-        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        setTimeout(() => entry.target.classList.add('visible'), i * 90);
         io.unobserve(entry.target);
       }
     });

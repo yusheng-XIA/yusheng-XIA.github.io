@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN" data-lang="zh">
+<html lang="zh-CN" data-lang="zh" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,14 +11,17 @@
   <script src="https://cdn.jsdelivr.net/npm/marked@12/marked.min.js"></script>
 </head>
 <body>
+  <div class="grain" aria-hidden="true"></div>
+
   <nav class="nav">
     <div class="nav-inner">
-      <a href="index.html" class="nav-brand">Yusheng Xia</a>
+      <a href="index.html" class="nav-brand">Yusheng <em>Xia</em></a>
       <div class="nav-links">
         <a href="index.html"><span class="lang lang-zh">首页</span><span class="lang lang-en">Home</span></a>
         <a href="publications.html"><span class="lang lang-zh">论文发表</span><span class="lang lang-en">Publications</span></a>
         <a href="blog.html"><span class="lang lang-zh">博客</span><span class="lang lang-en">Blog</span></a>
         <a href="cv.html"><span class="lang lang-zh">简历</span><span class="lang lang-en">CV</span></a>
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">☀</button>
         <button id="lang-toggle" class="lang-toggle" aria-label="Switch language">EN</button>
       </div>
     </div>
@@ -32,10 +35,12 @@
   </main>
 
   <footer class="footer">
-    <div class="container">
+    <div class="footer-watermark">Yusheng Xia</div>
+    <div class="container footer-inner">
+      <p><span class="lang lang-zh">© 2026 夏玉生</span><span class="lang lang-en">© 2026 Yusheng Xia</span></p>
       <p>
-        <span class="lang lang-zh">© 2026 夏玉生 · 由 GitHub Pages 托管</span>
-        <span class="lang lang-en">© 2026 Yusheng Xia · Hosted on GitHub Pages</span>
+        <a href="https://github.com/yusheng-XIA" target="_blank" rel="noopener">GitHub</a>
+        <span class="lang lang-zh"> · 由 GitHub Pages 托管</span><span class="lang lang-en"> · Hosted on GitHub Pages</span>
       </p>
     </div>
   </footer>
