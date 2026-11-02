@@ -248,6 +248,72 @@ html[data-lang="en"] .hero-title { font-family: var(--serif-en); }
   box-shadow: 0 6px 22px var(--glow);
 }
 
+/* ---------- hero grid & portrait ---------- */
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.65fr 1fr;
+  gap: 56px;
+  align-items: center;
+}
+.portrait { position: relative; z-index: 2; }
+.portrait img {
+  width: 100%;
+  max-width: 300px;
+  display: block;
+  margin-left: auto;
+  border-radius: 150px 150px 10px 10px;
+  border: 1px solid var(--line);
+  box-shadow: 0 24px 60px var(--shadow);
+  transition: transform .5s var(--ease), box-shadow .5s var(--ease);
+}
+.portrait:hover img {
+  transform: translateY(-6px);
+  box-shadow: 0 32px 70px var(--shadow);
+}
+.portrait::before {
+  content: "";
+  position: absolute;
+  inset: 14px -14px -14px 14px;
+  border: 1px solid var(--accent);
+  border-radius: 150px 150px 10px 10px;
+  opacity: .35;
+  z-index: -1;
+}
+
+/* ---------- research figures ---------- */
+.figure-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 18px;
+}
+.figure-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 20px 18px 16px;
+  color: var(--ink-soft);
+  transition: all .35s var(--ease);
+}
+.figure-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 40px var(--shadow);
+  border-color: var(--accent);
+}
+.figure-card svg { width: 100%; height: auto; display: block; }
+.figure-card figcaption {
+  font-size: .84rem;
+  color: var(--muted);
+  margin-top: 14px;
+  text-align: center;
+  letter-spacing: .03em;
+}
+.figure-note {
+  margin-top: 14px;
+  font-size: .85rem;
+  color: var(--muted);
+  font-style: italic;
+}
+
 /* ---------- marquee ---------- */
 .marquee {
   border-top: 1px solid var(--line);
@@ -666,6 +732,10 @@ html[data-lang="en"] .article h2 { font-family: var(--serif-en); }
   .nav-links a { font-size: .82rem; letter-spacing: 0; }
   .nav-brand { font-size: 1.05rem; }
   .hero { padding: 130px 0 0; }
+  .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+  .portrait img { margin: 0 auto; max-width: 240px; }
+  .helix { right: -10%; opacity: .1; }
+  .seq-texture { display: none; }
   .hero-links { padding-bottom: 60px; }
   .news-list li { flex-direction: column; gap: 2px; }
   .pub-item { padding: 22px 20px 20px 58px; }
