@@ -48,6 +48,32 @@ CCGGGCTGCAGGAATTCGATATCAAGCTTATCGATACCGTCGACCTCGAGGGGGGGCCCGGTACCCAATTCGCCCTATAG
       <circle cx="100" cy="400" r="4"/>
       <circle cx="100" cy="600" r="4"/>
     </svg>
+    <svg class="cells-texture" viewBox="0 0 260 300" aria-hidden="true">
+      <g class="cell">
+        <circle class="membrane" cx="60" cy="70" r="38"/><circle class="nucleus" cx="60" cy="70" r="14"/>
+      </g>
+      <g class="cell">
+        <circle class="membrane" cx="152" cy="48" r="26"/><circle class="nucleus" cx="152" cy="48" r="9.5"/>
+      </g>
+      <g class="cell">
+        <circle class="membrane" cx="212" cy="122" r="34"/><circle class="nucleus" cx="212" cy="122" r="12"/>
+      </g>
+      <g class="cell">
+        <circle class="membrane" cx="92" cy="172" r="28"/><circle class="nucleus" cx="92" cy="172" r="10"/>
+      </g>
+      <g class="cell">
+        <circle class="membrane" cx="192" cy="222" r="40"/><circle class="nucleus" cx="192" cy="222" r="15"/>
+      </g>
+      <g class="cell">
+        <circle class="membrane" cx="64" cy="252" r="21"/><circle class="nucleus" cx="64" cy="252" r="7.5"/>
+      </g>
+      <g class="transcripts">
+        <circle cx="48" cy="60" r="1.6"/><circle cx="70" cy="80" r="1.6"/><circle cx="205" cy="110" r="1.6"/>
+        <circle cx="225" cy="135" r="1.6"/><circle cx="85" cy="165" r="1.6"/><circle cx="100" cy="180" r="1.6"/>
+        <circle cx="185" cy="212" r="1.6"/><circle cx="200" cy="230" r="1.6"/><circle cx="150" cy="42" r="1.6"/>
+        <circle cx="60" cy="246" r="1.6"/>
+      </g>
+    </svg>
     <div class="container hero-grid">
       <div class="hero-text">
       <p class="hero-kicker reveal">
@@ -189,6 +215,19 @@ CCGGGCTGCAGGAATTCGATATCAAGCTTATCGATACCGTCGACCTCGAGGGGGGGCCCGGTACCCAATTCGCCCTATAG
         <span class="lang lang-en">Placeholders shown here — send me your real figures and I'll swap them in.</span>
       </p>
     </section>
+
+    <div class="tissue-band reveal" aria-hidden="true">
+      <svg viewBox="0 0 800 130" preserveAspectRatio="xMidYMid meet">
+        <defs>
+          <pattern id="tissue-spots" width="22" height="19" patternUnits="userSpaceOnUse">
+            <circle cx="5.5" cy="4.75" r="2" fill="currentColor"/>
+            <circle cx="16.5" cy="14.25" r="2" fill="currentColor"/>
+          </pattern>
+        </defs>
+        <path d="M60,65 C120,10 260,8 340,30 C430,55 520,20 620,35 C710,48 762,58 745,86 C718,124 560,118 430,112 C300,106 180,126 110,105 C58,90 28,82 60,65 Z"
+              fill="url(#tissue-spots)" stroke="currentColor" stroke-width="1.2"/>
+      </svg>
+    </div>
 
     <section class="section reveal">
       <h2 class="section-title">
