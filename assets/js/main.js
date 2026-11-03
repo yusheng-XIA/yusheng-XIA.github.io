@@ -63,6 +63,20 @@
   els.forEach(el => io.observe(el));
 })();
 
+/* ---------- scroll progress bar ---------- */
+(function () {
+  const bar = document.createElement('div');
+  bar.className = 'scroll-progress';
+  document.body.appendChild(bar);
+  function update() {
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (max > 0 ? (window.scrollY / max) * 100 : 0) + '%';
+  }
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+})();
+
 /* ---------- blog helpers ---------- */
 
 // A post markdown file holds Chinese first, then English after the marker.

@@ -5,9 +5,10 @@
 :root {
   --serif-en: "EB Garamond", "Noto Serif SC", Georgia, serif;
   --serif-zh: "Noto Serif SC", "EB Garamond", "Songti SC", serif;
+  --display: "Cormorant Garamond", "EB Garamond", Georgia, serif;
   --sans: "Inter", -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
   --mono: "SF Mono", Menlo, Consolas, monospace;
-  --maxw: 820px;
+  --maxw: 860px;
   --ease: cubic-bezier(.22, .68, .26, .99);
 }
 
@@ -209,7 +210,9 @@ html[data-lang="en"] .lang-en { display: inline; }
   margin-bottom: 24px;
 }
 html[data-lang="en"] .hero-name {
-  font-family: var(--serif-en);
+  font-family: var(--display);
+  font-weight: 400;
+  font-style: italic;
   letter-spacing: -.015em;
 }
 .hero-title {
@@ -692,6 +695,207 @@ body::before {
 }
 .tissue-band svg { width: 100%; height: auto; display: block; }
 
+/* ---------- editorial grid lines ---------- */
+.grid-lines {
+  position: fixed;
+  top: 0; bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(920px, calc(100% - 72px));
+  z-index: 0;
+  pointer-events: none;
+  border-left: 1px solid var(--line);
+  border-right: 1px solid var(--line);
+  opacity: .55;
+}
+
+/* ---------- side rails ---------- */
+.rail {
+  position: fixed;
+  bottom: 0;
+  z-index: 90;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+.rail-left { left: 30px; }
+.rail-right { right: 30px; }
+.rail a {
+  color: var(--muted);
+  display: flex;
+  transition: color .25s ease, transform .25s var(--ease);
+}
+.rail a:hover { color: var(--accent); transform: translateY(-3px); }
+.rail-line {
+  width: 1px;
+  height: 92px;
+  background: var(--muted);
+  opacity: .45;
+}
+.rail-mail {
+  writing-mode: vertical-rl;
+  font-family: var(--serif-en);
+  font-style: italic;
+  font-size: .85rem;
+  letter-spacing: .14em;
+}
+
+/* ---------- scroll progress & hint ---------- */
+.scroll-progress {
+  position: fixed;
+  top: 0; left: 0;
+  height: 2px;
+  width: 0;
+  background: var(--accent);
+  z-index: 200;
+  transition: width .1s linear;
+}
+.scroll-hint {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  width: max-content;
+  margin: -34px auto 26px;
+  color: var(--muted);
+}
+.scroll-hint-text {
+  font-family: var(--serif-en);
+  font-style: italic;
+  font-size: .76rem;
+  letter-spacing: .34em;
+  text-transform: uppercase;
+}
+.scroll-hint-line {
+  width: 1px;
+  height: 46px;
+  background: linear-gradient(to bottom, var(--accent), transparent);
+  transform-origin: top;
+  animation: scroll-pulse 2.2s var(--ease) infinite;
+}
+@keyframes scroll-pulse {
+  0%, 100% { transform: scaleY(1); opacity: 1; }
+  50% { transform: scaleY(.45); opacity: .4; }
+}
+
+/* ---------- research direction cards ---------- */
+.dir-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+.dir-card {
+  position: relative;
+  overflow: hidden;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 32px 26px 28px;
+  transition: transform .35s var(--ease), border-color .35s, box-shadow .35s;
+}
+.dir-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), transparent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .45s var(--ease);
+}
+.dir-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--accent);
+  box-shadow: 0 18px 46px var(--shadow);
+}
+.dir-card:hover::before { transform: scaleX(1); }
+.dir-icon {
+  width: 48px;
+  height: 48px;
+  color: var(--accent);
+  opacity: .85;
+  margin-bottom: 20px;
+  transition: transform .35s var(--ease);
+}
+.dir-card:hover .dir-icon { transform: translateY(-3px) scale(1.06); }
+.dir-icon svg { width: 100%; height: 100%; }
+.dir-title {
+  font-family: var(--serif-zh);
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+html[data-lang="en"] .dir-title { font-family: var(--serif-en); }
+.dir-desc {
+  font-size: .88rem;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+/* ---------- skill groups ---------- */
+.skill-groups { display: grid; gap: 24px; }
+.skill-label {
+  font-family: var(--serif-en);
+  font-style: italic;
+  font-weight: 400;
+  font-size: .95rem;
+  letter-spacing: .1em;
+  color: var(--accent);
+  margin-bottom: 14px;
+}
+
+/* ---------- contact cta ---------- */
+.contact-section {
+  text-align: center;
+  padding: 110px 0 30px;
+}
+.contact-kicker {
+  font-family: var(--serif-en);
+  font-style: italic;
+  font-size: .88rem;
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 24px;
+}
+.contact-title {
+  font-family: var(--serif-zh);
+  font-size: clamp(2.3rem, 6vw, 3.7rem);
+  font-weight: 600;
+  line-height: 1.15;
+  margin-bottom: 24px;
+}
+html[data-lang="en"] .contact-title {
+  font-family: var(--display);
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: -.01em;
+}
+.contact-sub {
+  max-width: 540px;
+  margin: 0 auto 44px;
+  color: var(--muted);
+}
+.contact-btn {
+  display: inline-block;
+  font-size: .95rem;
+  letter-spacing: .16em;
+  padding: 17px 50px;
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  color: var(--accent);
+  transition: all .3s var(--ease);
+}
+.contact-btn:hover {
+  background: var(--accent);
+  color: var(--accent-ink);
+  transform: translateY(-3px);
+  box-shadow: 0 14px 40px var(--glow);
+}
+
 .ornament {
   display: flex;
   justify-content: center;
@@ -781,4 +985,13 @@ body::before {
   .pub-item::before { left: 16px; }
   .post-card-title { font-size: 1.25rem; }
   .footer-inner { flex-direction: column; text-align: center; }
+}
+
+@media (max-width: 1240px) {
+  .rail { display: none; }
+}
+
+@media (max-width: 900px) {
+  .dir-grid { grid-template-columns: 1fr; }
+  .grid-lines { width: calc(100% - 36px); }
 }
